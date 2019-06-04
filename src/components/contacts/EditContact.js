@@ -3,7 +3,7 @@ import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from "axios";
 
-class AddContact extends Component {
+class EditContact extends Component {
   state = {
     name: "",
     email: "",
@@ -30,19 +30,6 @@ class AddContact extends Component {
       });
       return;
     }
-
-    const newContact = {
-      name,
-      email,
-      phone
-    };
-
-    const res = await axios.post(
-      "https://jsonplaceholder.typicode.com/users",
-      newContact
-    );
-
-    dispatch({ type: "ADD_CONTACT", payload: res.data });
 
     this.setState({
       name: "",
@@ -92,7 +79,7 @@ class AddContact extends Component {
                   />
                   <input
                     type="submit"
-                    value="Add Contact"
+                    value="Update Contact"
                     className="btn btn-light btn-block"
                   />
                 </form>
@@ -105,4 +92,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default EditContact;
